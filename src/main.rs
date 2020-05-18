@@ -8,8 +8,8 @@
     |_|  |__||_______||_|   |_||_______||___|  |_||_______||_______||_______||_______|  |___|  
 */
 
-fn convert_name(letter: &str) {
-        match letter {
+fn convert_to_number(letter: &str) -> u32 {
+        let number = match letter {
             "A" | "J" | "S" => 1,
             "B" | "K" | "T" => 2,
             "C" | "L" | "U" => 3,
@@ -21,13 +21,15 @@ fn convert_name(letter: &str) {
             "I" | "R" => 9,
             &_ => 0 
         };
+        return number
 }
 
 fn main() {
-    convert_name("A");
+    let numb = convert_to_number("A");
+    println!("your number {:?}", numb);
 }
 
 #[test]
 fn convert_name_test() {
-    assert_eq!("A", convert_name("A"));
+    assert_eq!(1, convert_to_number("A"));
 }
