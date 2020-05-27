@@ -1,3 +1,12 @@
+pub fn condense(name: &str) -> u32 {
+    let mut letters_to_numbers = 0;
+    for letter in name.to_uppercase().chars() {
+        let number = convert(&letter.to_string());
+        letters_to_numbers = letters_to_numbers + number;
+        println!("{}", number)
+    }
+    return letters_to_numbers
+}
 pub fn sum(number: u32) -> &'static str {
     let final_number = match number {
         0 => "you are a 0",
