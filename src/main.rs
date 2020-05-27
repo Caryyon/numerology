@@ -1,35 +1,19 @@
-/*
-     __    _  __   __  __   __  _______  ______    _______  ___      _______  _______  __   __ 
-    |  |  | ||  | |  ||  |_|  ||       ||    _ |  |       ||   |    |       ||       ||  | |  |
-    |   |_| ||  | |  ||       ||    ___||   | ||  |   _   ||   |    |   _   ||    ___||  |_|  |
-    |       ||  |_|  ||       ||   |___ |   |_||_ |  | |  ||   |    |  | |  ||   | __ |       |
-    |  _    ||       ||       ||    ___||    __  ||  |_|  ||   |___ |  |_|  ||   ||  ||_     _|
-    | | |   ||       || ||_|| ||   |___ |   |  | ||       ||       ||       ||   |_| |  |   |  
-    |_|  |__||_______||_|   |_||_______||___|  |_||_______||_______||_______||_______|  |___|  
-*/
+mod convert_to_number;
 
-fn convert_to_number(letter: &str) -> u32 {
-        let number = match letter {
-            "A" | "J" | "S" => 1,
-            "B" | "K" | "T" => 2,
-            "C" | "L" | "U" => 3,
-            "D" | "M" | "V" => 4,
-            "E" | "N" | "W" => 5,
-            "F" | "O" | "X" => 6,
-            "G" | "P" | "Y" => 7,
-            "H" | "Q" | "Z" => 8,
-            "I" | "R" => 9,
-            &_ => 0 
-        };
-        return number
+fn condense(name: &str) -> u32 {
+    let mut letters_to_numbers = 0;
+    for letter in name.to_uppercase().chars() {
+        let number = convert_to_number::convert(&letter.to_string());
+        letters_to_numbers = letters_to_numbers + number;
+        println!("{}", number)
+    }
+    return letters_to_numbers
 }
 
 fn main() {
-    let numb = convert_to_number("A");
-    println!("your number {:?}", numb);
-}
-
-#[test]
-fn convert_name_test() {
-    assert_eq!(1, convert_to_number("A"));
+    let name = "cary";
+    let end = condense(name);
+    println!("end: {}", end);
+    let final_answer = convert_to_number::sum(end);
+    println!("final answer {}", final_answer)
 }
