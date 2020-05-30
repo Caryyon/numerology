@@ -1,11 +1,11 @@
 mod utils;
 
+const NAME: &'static str = "cary";
 fn main() {
-    let name = "cary";
-    let numb = utils::condense(name);
+    let numb = utils::condense(NAME);
         println!("end: {}", numb);
         if (numb < 10) | (numb == 11) | (numb == 22) {
-            let final_answer = utils::get_reading(numb);
-            println!("final answer {}", final_answer);
+            let final_number = utils::get_reading(numb);
+            println!("final_number {}", final_number);
         }
 }

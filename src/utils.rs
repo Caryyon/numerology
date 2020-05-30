@@ -1,4 +1,3 @@
-
 pub fn condense(name: &str) -> u32 {
     let mut letters_to_numbers = vec![];
     let caps = name.to_uppercase();
@@ -33,7 +32,6 @@ pub fn get_reading(number: u32) -> &'static str {
     return final_number
 }
 
-
 pub fn convert(letter: &str) -> u32 {
         let number = match letter {
             "A" | "J" | "S" => 1,
@@ -54,4 +52,5 @@ pub fn convert(letter: &str) -> u32 {
 fn convert_test_letter() {
     assert_eq!(convert("A"), 1);
     assert_eq!(convert("B"), 2);
+    assert_eq!(convert("C"), 3);
 }
