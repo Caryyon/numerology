@@ -1,13 +1,20 @@
+
 pub fn condense(name: &str) -> u32 {
-    let mut letters_to_numbers = 0;
-    for letter in name.to_uppercase().chars() {
+    let mut letters_to_numbers = vec![];
+    let caps = name.to_uppercase();
+    let chars = caps.chars();
+    for letter in chars {
         let number = convert(&letter.to_string());
-        letters_to_numbers = letters_to_numbers + number;
-        println!("{}", number)
+        letters_to_numbers.push(number);
     }
-    return letters_to_numbers
+    println!("{:?}", letters_to_numbers);
+    let ltn_iter = letters_to_numbers.iter();
+    let total: u32 = ltn_iter.sum();
+    println!("{}", total);
+    return total;
 }
-pub fn sum(number: u32) -> &'static str {
+
+pub fn get_reading(number: u32) -> &'static str {
     let final_number = match number {
         0 => "you are a 0",
         1 => "you are a 1",
@@ -23,9 +30,10 @@ pub fn sum(number: u32) -> &'static str {
         22 => "you are a 12",
         _ =>  "i don't know what you are doing"
     };
-    println!("{:?}", final_number);
     return final_number
 }
+
+
 pub fn convert(letter: &str) -> u32 {
         let number = match letter {
             "A" | "J" | "S" => 1,
@@ -46,8 +54,4 @@ pub fn convert(letter: &str) -> u32 {
 fn convert_test_letter() {
     assert_eq!(convert("A"), 1);
     assert_eq!(convert("B"), 2);
-}
-#[test]
-fn convert_test_number() {
-    assert_eq!(convert(1), 1)
 }
