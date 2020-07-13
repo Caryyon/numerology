@@ -1,16 +1,12 @@
 // TODO: fix this rats nest
-pub fn condense(name: &str) -> u32 {
-    let mut numbers = vec![];
+pub fn condense(name: &str) -> Vec<u32> {
+    let mut numbers = Vec::new();
     let caps = name.to_uppercase();
-
     for letter in caps.chars() {
         let number = letter_to_number(&letter.to_string());
         numbers.push(number);
     }
-    let ltn_iter = numbers.iter();
-    let num_sum: u32 = ltn_iter.sum();
-    println!("{}", num_sum);
-    return num_sum;
+    numbers
 }
 
 // gives back your final sum number meaning.
@@ -27,7 +23,7 @@ pub fn get_reading(number: u32) -> &'static str {
         8 => "you are a 8",
         9 => "you are a 9",
         11 => "you are a 11",
-        22 => "you are a 12",
+        12 => "you are a 12",
         _ => "i don't know what you are doing",
     };
     return final_number;
