@@ -1,7 +1,8 @@
 mod utils;
 
-const NAME: &'static str = "bbbbba";
+const NAME: &'static str = "cary wolff";
 fn main() {
+    println!("what is your name?");
     let name_as_numb = utils::condense(NAME);
     let sum: u32 = name_as_numb.iter().sum();
     if (sum == 11) | (sum == 12) {

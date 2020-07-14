@@ -1,4 +1,4 @@
-// TODO: fix this rats nest
+// break down letters into numbers
 pub fn condense(name: &str) -> Vec<u32> {
     let mut numbers = Vec::new();
     let caps = name.to_uppercase();
